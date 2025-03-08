@@ -63,7 +63,7 @@ def _fetch_financial_metrics_from_financial_datasets(
     url = f"https://api.financialdatasets.ai/financial-metrics/?ticker={ticker}&report_period_lte={end_date}&limit={limit}&period={period}"
     response = requests.get(url, headers=headers)
     if response.status_code != 200:
-        raise Exception(f"Error fetching data: {response.status_code} - {response.text}")
+        raise Exception(f"Error fetching data: {ticker} - {response.status_code} - {response.text}")
 
     metrics_response = FinancialMetricsResponse(**response.json())
     return metrics_response
